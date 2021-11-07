@@ -40,7 +40,8 @@ void ToggleSmartShift::press()
         task::spawn([ss=this->_smartshift](){
             auto status = ss->getStatus();
             status.setActive = true;
-            status.active = !status.active;
+            //status.active = !status.active;
+            status.active = true; // Force to true. jeremy.przasnyski - don't want toggle behavior.
             ss->setStatus(status);
         });
     }
